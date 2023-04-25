@@ -1,0 +1,139 @@
+.main-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    border-radius: 15px;
+    background: linear-gradient(180deg, #20bbff 0%, #0e85ff 100%);
+    box-shadow: 0 8px 18px 10px rgba(0, 0, 0, 0.02);
+  
+    display: flex;
+    flex-direction: row;
+  
+    color: #ffffff;
+    font-family: "Arial";
+  }
+  
+  .logo-image {
+    height: 200px;
+    width: 200px;
+    margin: 90px 80px 30px 80px;
+  }
+  
+  .logo-subtext {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0 30px 100px 30px;
+  }
+  
+  .vertical-line {
+    height: 481px;
+    width: 1px;
+    background-color: #f5f7fb;
+  }
+  
+  .form-container {
+    padding: 90px 80px 20px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .page-title {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1.67px;
+    text-align: center;
+  }
+  
+  .main-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-container {
+    background-color: white;
+    border: 0.55px solid rgba(208, 208, 208, 0.5);
+    border-radius: 4px;
+  
+    width: 340px;
+    padding: 0 10px;
+    /* margin-bottom: 20px; */
+  
+    display: flex;
+    align-items: center;
+  }
+  
+  .error-input-container {
+    border: 0.55px solid red;
+    border-radius: 4px;
+  }
+  
+  input {
+    all: unset;
+    height: 40px;
+    width: 100%;
+    color: black;
+  }
+  
+  input[type="password"]::-ms-reveal,
+  input[type="password"]::-ms-clear {
+    display: none;
+  }
+  
+  .input-img {
+    width: 24px;
+    height: 25px;
+    cursor: pointer;
+  }
+  
+  .input-error-message {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  
+  .forgot-password {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: right;
+  
+    margin-bottom: 40px;
+  }
+  
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+  
+  .sign-in-button {
+    height: 44px;
+    width: 130px;
+    border-radius: 4px;
+    background-color: #ffffff;
+  
+    color: #0e85ff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-align: center;
+  }
+  
+  .sign-in-button-disabled {
+    background-color: rgba(208, 208, 208, 0.5);
+    cursor: auto;
+  }
+  
+  .signin-prompt-text {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 19px;
+  
+    margin-top: 60px;
+  }
+  

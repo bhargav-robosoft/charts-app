@@ -1,1 +1,123 @@
-<p>sign-up works!</p>
+<div class="main-container">
+  <div>
+    <img src="assets/chart_logo.png" alt="Logo" class="logo-image" />
+    <div class="logo-subtext">Look into different kinds of charts</div>
+  </div>
+
+  <div class="vertical-line"></div>
+
+  <div class="form-container">
+    <h3 class="page-title">SIGN UP</h3>
+
+    <form class="main-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div>
+        <div
+          class="input-container"
+          [ngClass]="{
+            'error-input-container': getErrorForControl('mobileNumber')
+          }"
+        >
+          <input
+            type="text"
+            placeholder="Mobile Number"
+            formControlName="mobileNumber"
+          />
+        </div>
+
+        <div class="input-error-message">
+          <ng-container *ngIf="getErrorForControl('mobileNumber')">
+            Invalid Phone Number
+          </ng-container>
+        </div>
+      </div>
+
+      <div>
+        <div
+          class="input-container"
+          [ngClass]="{
+            'error-input-container':
+              getErrorForControl('pin') || getErrorForPinMisMatch()
+          }"
+        >
+          <input
+            [type]="showPin ? 'text' : 'password'"
+            placeholder="MPin"
+            formControlName="pin"
+          />
+          <img
+            class="input-img"
+            [src]="showPin ? 'assets/eye_on.png' : 'assets/eye_off.png'"
+            (click)="showPin = !showPin"
+            alt="Toggle Passowrd"
+          />
+        </div>
+
+        <div class="input-error-message">
+          <ng-container *ngIf="getErrorForControl('pin')">
+            Invalid PIN
+          </ng-container>
+        </div>
+      </div>
+
+      <div>
+        <div
+          class="input-container"
+          [ngClass]="{
+            'error-input-container':
+              getErrorForControl('confirmPin') || getErrorForPinMisMatch()
+          }"
+        >
+          <input
+            [type]="showConformPin ? 'text' : 'password'"
+            placeholder="Confirm MPin"
+            formControlName="confirmPin"
+          />
+          <img
+            class="input-img"
+            [src]="showConformPin ? 'assets/eye_on.png' : 'assets/eye_off.png'"
+            (click)="showConformPin = !showConformPin"
+            alt="Toggle Passowrd"
+          />
+        </div>
+
+        <div class="input-error-message">
+          <ng-container *ngIf="getErrorForControl('confirmPin')">
+            Invalid PIN
+          </ng-container>
+        </div>
+      </div>
+
+      <div
+        *ngIf="
+          signUpForm.get('pin')?.valid &&
+          signUpForm.get('confirmPin')?.valid &&
+          signUpForm.errors
+        "
+        class="input-error-message"
+      >
+        <p *ngIf="signUpForm.errors?.['pinsDontMatch']">
+          PIN and PIN Conformation must match
+        </p>
+      </div>
+
+      <button
+        class="sign-in-button"
+        [ngClass]="{
+          'sign-in-button-disabled':
+            signUpForm.get('mobileNumber')?.invalid ||
+            signUpForm.get('pin')?.invalid ||
+            apiHit
+        }"
+        [disabled]="
+          signUpForm.get('mobileNumber')?.invalid ||
+          signUpForm.get('pin')?.invalid ||
+          apiHit
+        "
+      >
+        SIGN UP
+      </button>
+    </form>
+
+    <div class="signin-prompt-text">Already have an account? SIGN IN</div>
+  </div>
+</div>

@@ -3,20 +3,83 @@
     <img src="assets/chart_logo.png" alt="Logo" class="logo-image" />
     <div class="logo-subtext">Look into different kinds of charts</div>
   </div>
+
   <div class="vertical-line"></div>
+
   <div class="form-container">
     <h3 class="page-title">SIGN IN TO YOUR ACCOUNT</h3>
-    <form class="main-form">
-      <div class="input-container">
-        <input type="text" placeholder="Mobile Number" />
+
+    <form class="main-form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <div>
+        <div
+          class="input-container"
+          [ngClass]="{
+            'error-input-container': getErrorForControl('mobileNumber')
+          }"
+        >
+          <input
+            type="text"
+            placeholder="Mobile Number"
+            formControlName="mobileNumber"
+          />
+        </div>
+
+        <div class="input-error-message">
+          <ng-container *ngIf="getErrorForControl('mobileNumber')">
+            Invalid Phone Number
+          </ng-container>
+        </div>
       </div>
-      <div class="input-container">
-        <input type="text" placeholder="MPin" />
-        <img class="input-img" src="assets/eye_on.png" alt="" />
+
+      <div>
+        <div
+          class="input-container"
+          [ngClass]="{ 'error-input-container': getErrorForControl('pin') }"
+        >
+          <input
+            [type]="showPin ? 'text' : 'password'"
+            placeholder="MPin"
+            formControlName="pin"
+          />
+          <img
+            class="input-img"
+            [src]="showPin ? 'assets/eye_on.png' : 'assets/eye_off.png'"
+            (click)="showPin = !showPin"
+            alt="Toggle Passowrd"
+          />
+        </div>
+
+        <div class="input-error-message">
+          <ng-container *ngIf="getErrorForControl('pin')">
+            Invalid PIN
+          </ng-container>
+        </div>
       </div>
+
       <div class="forgot-password">Forgot your password?</div>
-      <button class="sign-in-button">SIGN IN</button>
+
+      <div *ngIf="signInForm.errors" class="input-error-message">
+        Either Mobile Number or PIN is Wrong
+      </div>
+
+      <button
+        class="sign-in-button"
+        [ngClass]="{
+          'sign-in-button-disabled':
+            signInForm.get('mobileNumber')?.invalid ||
+            signInForm.get('pin')?.invalid ||
+            apiHit
+        }"
+        [disabled]="
+          signInForm.get('mobileNumber')?.invalid ||
+          signInForm.get('pin')?.invalid ||
+          apiHit
+        "
+      >
+        SIGN IN
+      </button>
     </form>
+
     <div class="signup-prompt-text">Don’t have a Account? SIGNUP</div>
   </div>
 </div>
