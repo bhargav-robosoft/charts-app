@@ -19,14 +19,14 @@
         >
           <input
             type="text"
-            placeholder="Mobile Number"
+            placeholder="Enter Mobile Number"
             formControlName="mobileNumber"
           />
         </div>
 
         <div class="input-error-message">
           <ng-container *ngIf="getErrorForControl('mobileNumber')">
-            Invalid Phone Number
+            Invalid Mobile Number
           </ng-container>
         </div>
       </div>
@@ -41,7 +41,7 @@
         >
           <input
             [type]="showPin ? 'text' : 'password'"
-            placeholder="MPin"
+            placeholder="Enter 6 Digit Pin"
             formControlName="pin"
           />
           <img
@@ -69,7 +69,7 @@
         >
           <input
             [type]="showConformPin ? 'text' : 'password'"
-            placeholder="Confirm MPin"
+            placeholder="Re-Enter 6 Digit Pin"
             formControlName="confirmPin"
           />
           <img
