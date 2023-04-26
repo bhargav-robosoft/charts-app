@@ -19,7 +19,7 @@
         >
           <input
             type="text"
-            placeholder="Mobile Number"
+            placeholder="Enter Mobile Number"
             formControlName="mobileNumber"
           />
         </div>
@@ -38,14 +38,14 @@
         >
           <input
             [type]="showPin ? 'text' : 'password'"
-            placeholder="MPin"
+            placeholder="Enter 6 Digit Pin"
             formControlName="pin"
           />
           <img
             class="input-img"
             [src]="showPin ? 'assets/eye_on.png' : 'assets/eye_off.png'"
             (click)="showPin = !showPin"
-            alt="Toggle Passowrd"
+            alt="Toggle Pin"
           />
         </div>
 
@@ -63,9 +63,9 @@
       </div>
 
       <button
-        class="sign-in-button"
+        class="auth-submit-button"
         [ngClass]="{
-          'sign-in-button-disabled':
+          'auth-submit-button-disabled':
             signInForm.get('mobileNumber')?.invalid ||
             signInForm.get('pin')?.invalid ||
             apiHit
@@ -80,6 +80,10 @@
       </button>
     </form>
 
-    <div class="signup-prompt-text">Don’t have a Account? SIGNUP</div>
+    <div class="auth-prompt">
+      <span class="auth-prompt-text" routerLink="/signup">
+        Don’t have a Account? SIGNUP
+      </span>
+    </div>
   </div>
 </div>

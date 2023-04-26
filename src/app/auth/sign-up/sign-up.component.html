@@ -48,7 +48,7 @@
             class="input-img"
             [src]="showPin ? 'assets/eye_on.png' : 'assets/eye_off.png'"
             (click)="showPin = !showPin"
-            alt="Toggle Passowrd"
+            alt="Toggle Pin"
           />
         </div>
 
@@ -95,22 +95,24 @@
         "
         class="input-error-message"
       >
-        <p *ngIf="signUpForm.errors?.['pinsDontMatch']">
+        <ng-container *ngIf="signUpForm.errors?.['pinsDontMatch']">
           PIN and PIN Conformation must match
-        </p>
+        </ng-container>
       </div>
 
       <button
-        class="sign-in-button"
+        class="auth-submit-button"
         [ngClass]="{
-          'sign-in-button-disabled':
+          'auth-submit-button-disabled':
             signUpForm.get('mobileNumber')?.invalid ||
             signUpForm.get('pin')?.invalid ||
+            signUpForm.get('confirmPin')?.invalid ||
             apiHit
         }"
         [disabled]="
           signUpForm.get('mobileNumber')?.invalid ||
           signUpForm.get('pin')?.invalid ||
+          signUpForm.get('confirmPin')?.invalid ||
           apiHit
         "
       >
@@ -118,6 +120,10 @@
       </button>
     </form>
 
-    <div class="signin-prompt-text">Already have an account? SIGN IN</div>
+    <div class="auth-prompt">
+      <span class="auth-prompt-text" routerLink="/signin">
+        Already have an account? SIGN IN
+      </span>
+    </div>
   </div>
 </div>

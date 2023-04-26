@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatchPin } from '../match-pin';
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatchPin } from "../validators/match-pin";
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
+  selector: "app-sign-up",
+  templateUrl: "./sign-up.component.html",
+  styleUrls: ["./sign-up.component.css", "../auth.css"],
 })
 export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
@@ -18,17 +18,17 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
     this.signUpForm = new FormGroup(
       {
-        mobileNumber: new FormControl('', [
+        mobileNumber: new FormControl("", [
           Validators.required,
           Validators.minLength(10),
           Validators.maxLength(10),
         ]),
-        pin: new FormControl('', [
+        pin: new FormControl("", [
           Validators.required,
           Validators.minLength(6),
           Validators.maxLength(6),
         ]),
-        confirmPin: new FormControl('', [
+        confirmPin: new FormControl("", [
           Validators.required,
           Validators.minLength(6),
           Validators.maxLength(6),
@@ -48,9 +48,9 @@ export class SignUpComponent implements OnInit {
 
   getErrorForPinMisMatch() {
     return (
-      this.signUpForm.get('pin')?.valid &&
-      this.signUpForm.get('confirmPin')?.valid &&
-      this.signUpForm.errors?.['pinsDontMatch']
+      this.signUpForm.get("pin")?.valid &&
+      this.signUpForm.get("confirmPin")?.valid &&
+      this.signUpForm.errors?.["pinsDontMatch"]
     );
   }
 
