@@ -1,0 +1,18 @@
+.chart {
+    height: 400px;
+    
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+button {
+  all: unset;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.active {
+  color: cornflowerblue;
+  border-bottom: 2px solid cornflowerblue;
+}

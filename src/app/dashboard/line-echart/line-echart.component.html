@@ -1,2 +1,24 @@
-<div echarts [options]="chartOption" style="height: 400px"></div>
-<button (click)="changeData()">1 month</button>
+<div echarts [options]="chartOption" class="chart"></div>
+<div class="buttons">
+  <button (click)="changeData('ytd')" [ngClass]="{ active: type === 'ytd' }">
+    Year to Date
+  </button>
+  <button
+    (click)="changeData('oneYear')"
+    [ngClass]="{ active: type === 'oneYear' }"
+  >
+    1 Year
+  </button>
+  <button
+    (click)="changeData('threeYear')"
+    [ngClass]="{ active: type === 'threeYear' }"
+  >
+    3 Year
+  </button>
+  <button
+    (click)="changeData('fiveYear')"
+    [ngClass]="{ active: type === 'fiveYear' }"
+  >
+    5 Year
+  </button>
+</div>

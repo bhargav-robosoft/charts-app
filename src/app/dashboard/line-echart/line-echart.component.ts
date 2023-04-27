@@ -15,6 +15,7 @@ export class LineEchartComponent implements OnInit {
   labelsSub!: Subscription;
   ticksSub!: Subscription;
 
+  type: 'ytd' | 'oneYear' | 'threeYear' | 'fiveYear' = 'ytd';
   data!: number[];
   labels!: string[];
   ticks!: { [key: string]: string };
@@ -76,7 +77,7 @@ export class LineEchartComponent implements OnInit {
         },
       },
       title: {
-        text: 'ECharts Example',
+        text: 'ICICI BANK',
       },
       tooltip: {
         trigger: 'axis',
@@ -91,8 +92,9 @@ export class LineEchartComponent implements OnInit {
     };
   }
 
-  changeData() {
-    this.lineEchartService.loadYearData();
+  changeData(type: 'ytd' | 'oneYear' | 'threeYear' | 'fiveYear') {
+    this.type = type;
+    this.lineEchartService.loadYearData(type);
     this.setChartData();
   }
 }
