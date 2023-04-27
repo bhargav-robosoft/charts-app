@@ -1,0 +1,54 @@
+.container {
+    margin: 30px auto;
+    width: 60%;
+    background-color: rgb(243, 243, 243);
+    padding: 20px 50px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.form-container {
+    flex-grow: 1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input {
+    padding: 12px 20px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.btn-add {
+    background-color: #4CAF50;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    padding: 5px 10px;
+}
+
+.btn-submit {
+    background-color: #008CBA;
+}

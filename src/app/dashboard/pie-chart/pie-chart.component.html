@@ -1,0 +1,33 @@
+<div class="container">
+  <form class="form-container" [formGroup]="chartForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="portfolio">
+      <h4>Your Portfolio</h4>
+      <button class="btn btn-add" type="button" (click)="onAddCompany()">
+        Add to Portfolio
+      </button>
+      <div  *ngFor="let group of getControls(); let i = index;">
+        <div class="input-group" [formGroupName]="i">
+          <input type="text" formControlName="company" />
+          <input type="number" formControlName="amount" />
+          <button class="btn btn-delete" (click)="deleteGroup(i)">X</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-submit" type="submit">Submit</button>
+  </form>
+  
+  <div *ngIf="pieChartData">
+    <h3>Pie Chart</h3>
+    <div style="width: 400px; height: 400px;">
+      <canvas
+        width="400"
+        height="400"
+        baseChart
+        type="pie"
+        [data]="pieChartData"
+        [options]="pieChartOptions"
+      ></canvas>
+    </div>
+  </div>
+  
+</div>
