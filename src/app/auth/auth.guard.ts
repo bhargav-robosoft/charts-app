@@ -13,8 +13,10 @@ import { AuthService } from "./auth.service";
 @Injectable({
   providedIn: "root",
 })
-export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
+export class AuthGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {}
+
+  // CanDeactivate<unknown>
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -40,26 +42,26 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
     return true;
   }
 
-  canDeactivate(
-    component: unknown,
-    currentRoute: ActivatedRouteSnapshot,
-    currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    console.log(currentState.url);
-    console.log("CanDeactivate", this.authService.getIsSignedIn());
-    if (this.authService.getIsSignedIn()) {
-      console.log("CanDeactivate", true);
+  // canDeactivate(
+  //   component: unknown,
+  //   currentRoute: ActivatedRouteSnapshot,
+  //   currentState: RouterStateSnapshot,
+  //   nextState?: RouterStateSnapshot
+  // ):
+  //   | Observable<boolean | UrlTree>
+  //   | Promise<boolean | UrlTree>
+  //   | boolean
+  //   | UrlTree {
+  //   console.log(currentState.url);
+  //   console.log("CanDeactivate", this.authService.getIsSignedIn());
+  //   if (this.authService.getIsSignedIn()) {
+  //     console.log("CanDeactivate", true);
 
-      return false;
-    } else {
-      console.log("CanDeactivate", true);
+  //     return false;
+  //   } else {
+  //     console.log("CanDeactivate", true);
 
-      return true;
-    }
-  }
+  //     return true;
+  //   }
+  // }
 }
