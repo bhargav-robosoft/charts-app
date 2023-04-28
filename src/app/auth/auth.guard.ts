@@ -50,6 +50,7 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    console.log(currentState.url);
     console.log("CanDeactivate", this.authService.getIsSignedIn());
     if (this.authService.getIsSignedIn()) {
       console.log("CanDeactivate", true);

@@ -44,4 +44,8 @@ export class AuthService {
       }, 1000);
     });
   }
+
+  signOut() {
+    localStorage.removeItem("signedIn");
+  }
 }

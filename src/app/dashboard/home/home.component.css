@@ -1,0 +1,22 @@
+.signout {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+.link-button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.link-button:hover {
+    cursor: pointer;
+}
