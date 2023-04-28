@@ -1,5 +1,10 @@
+<div class="app-bar">
+  <img src="assets/chart_logo.png" alt="Logo" class="logo-image" />
+  <div class="app-title">Charts</div>
+</div>
+
 <div class="main-container">
-  <div>
+  <div class="image-container">
     <img src="assets/chart_logo.png" alt="Logo" class="logo-image" />
     <div class="logo-subtext">Look into different kinds of charts</div>
   </div>
@@ -10,7 +15,7 @@
     <h3 class="page-title">SIGN IN TO YOUR ACCOUNT</h3>
 
     <form class="main-form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-      <div>
+      <div class="input-main-container">
         <div
           class="input-container"
           [ngClass]="{

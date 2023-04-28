@@ -28,4 +28,20 @@ export class AuthService {
       }, 1000);
     });
   }
+
+  signUp(data: { mobileNumber: string; pin: string }) {
+    return new Observable((subscriber) => {
+      setTimeout(() => {
+        if (data.mobileNumber === "1234567890") {
+          subscriber.error({ accountExists: true });
+        } else if (data.pin === "123456") {
+          subscriber.next({ signedIn: true });
+          this.setIsSignedIn(true);
+          subscriber.complete();
+        } else {
+          subscriber.error({ wrongPin: true });
+        }
+      }, 1000);
+    });
+  }
 }

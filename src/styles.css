@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@media only screen and (max-width: 900px) {
+    body {
+        background: linear-gradient(180deg, #20bbff 0%, #0e85ff 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+}

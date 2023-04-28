@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatchPin } from "../validators/match-pin";
+import { Router } from "@angular/router";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-sign-up",
@@ -13,7 +15,11 @@ export class SignUpComponent implements OnInit {
   showConformPin = false;
   apiHit = false;
 
-  constructor(private matchPin: MatchPin) {}
+  constructor(
+    private matchPin: MatchPin,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup(
@@ -54,5 +60,17 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  onSubmit() {}
+  onSubmit() {
+    this.apiHit = true;
+    this.authService.signUp(this.signUpForm.value).subscribe({
+      next: (data) => {
+        this.apiHit = false;
+        this.router.navigateByUrl("/dashboard");
+      },
+      error: (error) => {
+        this.apiHit = false;
+        this.signUpForm.setErrors({ accountExists: true });
+      },
+    });
+  }
 }

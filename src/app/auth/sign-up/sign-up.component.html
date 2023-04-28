@@ -1,5 +1,10 @@
+<div class="app-bar">
+  <img src="assets/chart_logo.png" alt="Logo" class="logo-image" />
+  <div class="app-title">Charts</div>
+</div>
+
 <div class="main-container">
-  <div>
+  <div class="image-container">
     <img src="assets/chart_logo.png" alt="Logo" class="logo-image" />
     <div class="logo-subtext">Look into different kinds of charts</div>
   </div>
@@ -97,6 +102,10 @@
       >
         <ng-container *ngIf="signUpForm.errors?.['pinsDontMatch']">
           PIN and PIN Conformation must match
+        </ng-container>
+
+        <ng-container *ngIf="signUpForm.errors?.['accountExists']">
+          Account exists for this number
         </ng-container>
       </div>
 

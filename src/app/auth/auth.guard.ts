@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -6,12 +6,12 @@ import {
   Router,
   RouterStateSnapshot,
   UrlTree,
-} from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+} from "@angular/router";
+import { Observable } from "rxjs";
+import { AuthService } from "./auth.service";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
   constructor(private router: Router, private authService: AuthService) {}
@@ -27,10 +27,15 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
     console.log(state.url);
 
     if (this.authService.getIsSignedIn()) {
-      if (state.url === '/signin' || state.url === '/signup') {
-        this.router.navigateByUrl('/dashboard');
+      if (state.url === "/signin" || state.url === "/signup") {
+        this.router.navigateByUrl("/dashboard");
       }
-      console.log('canActivate', true);
+      console.log("canActivate", true);
+    } else {
+      if (state.url === "/dashboard") {
+        this.router.navigateByUrl("/signin");
+        return false;
+      }
     }
     return true;
   }
@@ -45,13 +50,13 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    console.log('CanDeactivate', this.authService.getIsSignedIn());
+    console.log("CanDeactivate", this.authService.getIsSignedIn());
     if (this.authService.getIsSignedIn()) {
-      console.log('CanDeactivate', true);
+      console.log("CanDeactivate", true);
 
       return false;
     } else {
-      console.log('CanDeactivate', true);
+      console.log("CanDeactivate", true);
 
       return true;
     }

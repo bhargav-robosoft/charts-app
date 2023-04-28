@@ -1,3 +1,7 @@
+.app-bar {
+    display: none;
+}
+
 .main-container {
     position: absolute;
     top: 50%;
@@ -98,42 +102,133 @@ input[type="password"]::-ms-clear {
 button {
     all: unset;
     cursor: pointer;
-  }
-  
-  .auth-submit-button {
+}
+
+.auth-submit-button {
     height: 44px;
     width: 130px;
     border-radius: 4px;
     background-color: #ffffff;
-  
+
     color: #0e85ff;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 1.2px;
     text-align: center;
-  
+
     margin-top: 40px;
-  }
-  
-  .auth-submit-button-disabled {
+}
+
+.auth-submit-button-disabled {
     background-color: rgba(208, 208, 208, 0.5);
     cursor: auto;
-  }
-  
-  .auth-prompt {
+}
+
+.auth-prompt {
     margin-top: 60px;
 
     flex-grow: 1;
 
     display: flex;
     align-items: flex-end;
-  }
+}
 
-  .auth-prompt-text {
+.auth-prompt-text {
     cursor: pointer;
 
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0;
     line-height: 19px;
-  }
+}
+
+@media only screen and (max-width: 900px) {
+    .app-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 20%;
+    }
+
+    .logo-image {
+        height: 30px;
+        width: 30px;
+        margin: 10px;
+    }
+
+    .app-title {
+        color: #ffffff;
+        font-family: "Arial";
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        height: 20vh;
+
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+
+        position: static;
+        transform: none;
+    }
+
+    .image-container {
+        display: none;
+    }
+
+    .vertical-line {
+        display: none;
+    }
+
+    .form-container {
+        margin: 0 50px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-grow: 1;
+    }
+
+    .main-form {
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    .input-container {
+        width: auto;
+    }
+
+    .auth-submit-button {
+        margin: 20px auto;
+    }
+
+    .auth-prompt {
+        margin-top: 0;
+        flex-grow: 0;
+        justify-content: center;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .app-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 50%;
+    }
+
+    .main-container {
+        height: 40vh;
+    }
+
+    .form-container {
+        margin: 0 20px;
+    }
+}
