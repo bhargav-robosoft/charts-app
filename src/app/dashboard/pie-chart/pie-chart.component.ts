@@ -22,10 +22,6 @@ export class PieChartComponent implements OnInit {
     responsive: false,
   };
 
-  doughnutChartOptions = {
-    responsive: false,
-  };
-
   onAddCompany(): void {
     const group = new FormGroup({
       company: new FormControl(null, Validators.required),
