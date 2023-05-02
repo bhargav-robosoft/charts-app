@@ -8,9 +8,10 @@ import { NgChartsModule } from 'ng2-charts';
 import { LineEchartComponent } from './line-echart/line-echart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MultiLineEchartComponent } from './multi-line-echart/multi-line-echart.component';
 
 @NgModule({
-  declarations: [HomeComponent, LineEchartComponent, PieChartComponent],
+  declarations: [HomeComponent, LineEchartComponent, PieChartComponent, MultiLineEchartComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
