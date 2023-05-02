@@ -23,7 +23,7 @@
           }"
         >
           <input
-            type="text"
+            type="number"
             placeholder="Enter Mobile Number"
             formControlName="mobileNumber"
           />
@@ -45,7 +45,7 @@
           }"
         >
           <input
-            [type]="showPin ? 'text' : 'password'"
+            [type]="showPin ? 'number' : 'password'"
             placeholder="Enter 6 Digit Pin"
             formControlName="pin"
           />
@@ -73,7 +73,7 @@
           }"
         >
           <input
-            [type]="showConformPin ? 'text' : 'password'"
+            [type]="showConformPin ? 'number' : 'password'"
             placeholder="Re-Enter 6 Digit Pin"
             formControlName="confirmPin"
           />
